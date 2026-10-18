@@ -1,0 +1,21 @@
+syntax = "proto3";
+package lab3;
+
+service ComputeService {
+  rpc Compute (ComputeRequest) returns (ComputeReply);
+}
+
+message ComputeRequest {
+  string request_id = 1;
+  int32 n = 2;
+  int32 blocks = 3;
+}
+
+message ComputeReply {
+  string request_id = 1;
+  int32 n = 2;
+  string result_shape = 3;
+  double result_sum = 4;
+  double result_norm = 5;
+  double server_compute_ms = 6;
+}
