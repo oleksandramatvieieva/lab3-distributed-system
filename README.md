@@ -7,8 +7,8 @@ This project reuses `lab2_kernel.py` from Lab 2 and provides:
 - request IDs, server compute time, client end-to-end time, approximate overhead.
 
 ## Deploy REST on Render
-Render Web Services expose one public HTTP port. This configuration deploys the REST API.
-Build command: `pip install -r requirements.txt && python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. lab3.proto`
+Render Web Services expose one public HTTP port. This configuration deploys the REST API with a minimal dependency set to reduce build memory use.
+Build command: `pip install -r requirements.txt`
 Start command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
 Health check: `/health`
 

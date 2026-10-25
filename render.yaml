@@ -3,6 +3,6 @@ services:
     name: lab3-rest-api
     runtime: python
     plan: free
-    buildCommand: pip install -r requirements.txt && python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. lab3.proto
+    buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
