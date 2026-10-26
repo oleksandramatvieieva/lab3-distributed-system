@@ -1,21 +1,16 @@
 syntax = "proto3";
 package lab3;
-
 service ComputeService {
   rpc Compute (ComputeRequest) returns (ComputeReply);
+  rpc ComputeY3Block (Y3BlockRequest) returns (Y3BlockReply);
 }
-
-message ComputeRequest {
-  string request_id = 1;
-  int32 n = 2;
-  int32 blocks = 3;
-}
-
+message ComputeRequest { string request_id = 1; int32 n = 2; int32 blocks = 3; }
 message ComputeReply {
-  string request_id = 1;
-  int32 n = 2;
-  string result_shape = 3;
-  double result_sum = 4;
-  double result_norm = 5;
-  double server_compute_ms = 6;
+  string request_id = 1; int32 n = 2; string result_shape = 3;
+  double result_sum = 4; double result_norm = 5; double server_compute_ms = 6;
+}
+message Y3BlockRequest { string request_id = 1; int32 n = 2; int32 k = 3; }
+message Y3BlockReply {
+  string request_id = 1; int32 n = 2; int32 k = 3; int32 rows = 4; int32 cols = 5;
+  repeated double values = 6; double server_compute_ms = 7;
 }
